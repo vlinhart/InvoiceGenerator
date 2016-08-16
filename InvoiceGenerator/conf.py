@@ -12,7 +12,7 @@ def get_gettext(lang):
                             codeset='utf8')
     t.install()
 
-    return lambda message: t.gettext(message)
+    return lambda message: t.gettext(message).decode('utf-8')
 
 try:
     lang = os.environ.get("INVOICE_LANG", LANGUAGE)

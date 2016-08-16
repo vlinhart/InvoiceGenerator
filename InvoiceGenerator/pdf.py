@@ -89,7 +89,8 @@ def fix_grouping(bytestring):
 
 
 def currency(amount, unit=u"Kč"):
-    return fix_grouping(locale.currency(amount, symbol=False, grouping=True)).replace(u",00", u",-") + " " + unit
+    return fix_grouping(locale.currency(amount, symbol=False, grouping=True)).replace(
+        u",00", u",-").replace(u'Â', u'') + u" " + unit
     # I need different symbols with one locale
     #return fix_grouping(locale.currency(amount, grouping=True)).replace(u",00 %s" % unit, u",- %s   " % unit)
 
